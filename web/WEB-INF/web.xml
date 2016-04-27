@@ -21,4 +21,28 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
+    <filter>
+        <filter-name>ContratistaFiltro</filter-name>
+        <filter-class>filtros.ContratistaFiltro</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ContratistaFiltro</filter-name>
+        <url-pattern>/faces/contratista/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>PlantaFiltro</filter-name>
+        <filter-class>filtros.PlantaFiltro</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PlantaFiltro</filter-name>
+        <url-pattern>/faces/planta/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>IndexFiltro</filter-name>
+        <filter-class>filtros.IndexFiltro</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>IndexFiltro</filter-name>
+        <url-pattern>/faces/index.xhtml</url-pattern>
+    </filter-mapping>    
 </web-app>
