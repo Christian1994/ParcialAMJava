@@ -5,7 +5,9 @@
  */
 package logica;
 
+import java.util.List;
 import javax.ejb.Local;
+import modelo.TrabajaEn;
 
 /**
  *
@@ -14,4 +16,6 @@ import javax.ejb.Local;
 @Local
 public interface TrabajaEnLogicaLocal {
     
+    public void registrarTrabajaEn(TrabajaEn trabajaEn) throws Exception;
+    public List<TrabajaEn> consultarTodos() throws Exception;
 }

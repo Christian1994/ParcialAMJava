@@ -23,7 +23,7 @@
             <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="50" resizable="true" closable="true" collapsible="true">
-                    GESTIÓN DE DEPENDIENTES
+                    GESTIÓN DE PROYECTOS
                 </p:layoutUnit>
 
                 <p:layoutUnit position="west" header="Colapsar" collapsible="true">
@@ -34,50 +34,20 @@
 
                 <p:layoutUnit position="center">
                     <h:form id="formulario">
-                         <p:growl id="growl" showDetail="true" sticky="true" />
-                        <p:panelGrid columns="6">
-                            <f:facet name="informacion Dependientes"></f:facet>
-                            <h:outputText value="NSSE"/>
-                            <p:inputText id="txtNSSE" binding="#{dependienteVista.txtNSSE}"/>
-                            <h:outputText value="Nombre"/>
-                            <p:inputText id="txtNombre" binding="#{dependienteVista.txtNombre}"/>
-                            <h:outputText value="Sexo"/>
-                            <p:selectOneMenu id="cmbSexos" binding="#{dependienteVista.cmbSexos}">
-                                <f:selectItem itemValue="0" itemLabel="Seleccione"/>
-                                <f:selectItem itemValue="F" itemLabel="F"/>
-                                <f:selectItem itemValue="M" itemLabel="M"/>
-                            </p:selectOneMenu>
-                            <h:outputText value="Fecha de Nacimiento"/>
-                            <p:inputText id="txtFechan" binding="#{dependienteVista.txtFechan}"/>
-                            <h:outputText value="Parentesco"/>
-                            <p:inputText id="txtParentesco" binding="#{dependienteVista.txtParentesco}"/>
+                        <p:growl id="growl" showDetail="true" sticky="true" />
+                        <p:panelGrid columns="1">
+                            <p:fileUpload label="Importar Proyectos" invalidFileMessage="El archivo debe ser de extensión .xls" fileUploadListener="#{proyectoVista.handleFileUpload}" mode="advanced"  update="formulario" auto="true" allowTypes="/(\.|\/)(xls)$/"/>
                         </p:panelGrid>
-                        <p:panelGrid columns="4">
-                            <p:commandButton value="Registrar" binding="#{dependienteVista.btnRegistrar}" action="#{dependienteVista.action_registrar()}" update=":formulario"/> 
-                            <p:commandButton value="Modificar" binding="#{dependienteVista.btnModificar}" action="#{dependienteVista.action_modificar()}" update=":formulario"/>
-                            <p:commandButton value="Eliminar" binding="#{dependienteVista.btnEliminar}" action="#{dependienteVista.action_eliminar()}" update=":formulario"/>
-                            <p:commandButton value="Limpiar" binding="#{dependienteVista.btnLimpiar}" action="#{dependienteVista.limpiar()}" update=":formulario"/>
-                        </p:panelGrid>
-                         <p:dataTable id="eventsDT" var="dependiente" value="#{dependienteVista.listaDependientes}" selectionMode="single" selection="#{dependienteVista.selectedDependiente}" rowKey="#{dependiente.dependientePK}">
-                            <f:facet name="header">
-                                Dependientes
-                            </f:facet>
-                            <p:ajax event="rowSelect" listener="#{dependienteVista.onRowSelect}" update=":formulario" />
-                            <p:column headerText="NSSE">
-                                <h:outputText value="#{dependiente.dependientePK.nsse}" />
-                            </p:column>
-                            <p:column headerText="Nombre">
-                                <h:outputText value="#{dependiente.dependientePK.nombreDependiente}" />
-                            </p:column>
-                             <p:column headerText="Sexo">
-                                 <h:outputText value="#{dependiente.sexo}" />
-                            </p:column>
-                             <p:column headerText="Fecha Nacimiento">
-                                 <h:outputText value="#{dependiente.fechan}" />
-                            </p:column>
-                            <p:column headerText="Parentesco">
-                                 <h:outputText value="#{dependiente.parentesco}" />
-                            </p:column>
+                        <p:dataTable id="eventsDT" var="proyecto" value="#{proyectoVista.listaProyectos}" selectionMode="single" selection="#{proyectoVista.selectedProyecto}" rowKey="#{proyecto.numerop}">
+                           <f:facet name="header">
+                               Proyectos
+                           </f:facet>
+                           <p:column headerText="Nombre Proyecto">
+                               <h:outputText value="#{proyecto.nombrep}" />
+                           </p:column>
+                           <p:column headerText="Nombre Departamento">
+                               <h:outputText value="#{proyecto.numd.nombred}" />
+                           </p:column>
                         </p:dataTable>
                     </h:form>
                 </p:layoutUnit>

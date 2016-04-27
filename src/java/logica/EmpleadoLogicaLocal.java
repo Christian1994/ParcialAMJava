@@ -5,7 +5,9 @@
  */
 package logica;
 
+import java.util.List;
 import javax.ejb.Local;
+import modelo.Empleado;
 
 /**
  *
@@ -13,5 +15,7 @@ import javax.ejb.Local;
  */
 @Local
 public interface EmpleadoLogicaLocal {
+
+    public List<Empleado> consultarTodos();
     
 }

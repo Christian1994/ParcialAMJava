@@ -5,7 +5,11 @@
  */
 package logica;
 
+import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import modelo.Empleado;
+import persistencia.EmpleadoFacadeLocal;
 
 /**
  *
@@ -13,6 +17,14 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class EmpleadoLogica implements EmpleadoLogicaLocal {
+
+    @EJB
+    EmpleadoFacadeLocal empleadoDAO;
+    
+    @Override
+    public List<Empleado> consultarTodos() {
+        return empleadoDAO.findAll();
+    }
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
