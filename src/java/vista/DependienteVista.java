@@ -16,6 +16,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import logica.DependienteLogicaLocal;
 import modelo.Dependiente;
+import modelo.DependientePK;
 import org.primefaces.component.commandbutton.CommandButton;
 import org.primefaces.component.inputtext.InputText;
 import org.primefaces.component.selectonemenu.SelectOneMenu;
@@ -174,10 +175,14 @@ public class DependienteVista {
   // Método registrar
     public void action_registrar(){
         try {
-            SimpleDateFormat fechaCadena = new SimpleDateFormat();
+            SimpleDateFormat fechaCadena = new SimpleDateFormat("yyyy-MM-dd");
             Dependiente objDependiente = new Dependiente();
-            try { objDependiente.getDependientePK().setNsse(Long.parseLong(this.txtNSSE.getValue().toString())); } catch(Exception ex) {}
-            objDependiente.getDependientePK().setNombreDependiente(this.txtNombre.getValue().toString());
+            DependientePK objDependientePK = new DependientePK();
+            
+            objDependientePK.setNsse(Long.parseLong(this.txtNSSE.getValue().toString())); 
+            objDependientePK.setNombreDependiente(this.txtNombre.getValue().toString());
+            
+            objDependiente.setDependientePK(objDependientePK);
             objDependiente.setSexo(this.cmbSexos.getValue().toString());
             objDependiente.setFechan(fechaCadena.parse(this.txtFechan.getValue().toString()));
             objDependiente.setParentesco(this.txtParentesco.getValue().toString());
@@ -195,10 +200,14 @@ public class DependienteVista {
     // Método modificar
     public void action_modificar(){
         try{
-            SimpleDateFormat fechaCadena = new SimpleDateFormat();
+            SimpleDateFormat fechaCadena = new SimpleDateFormat("yyyy-MM-dd");
             Dependiente objDependiente = new Dependiente();
-            try { objDependiente.getDependientePK().setNsse(Long.parseLong(this.txtNSSE.getValue().toString())); } catch(Exception ex) {}
-            objDependiente.getDependientePK().setNombreDependiente(this.txtNombre.getValue().toString());
+            DependientePK objDependientePK = new DependientePK();
+            
+            objDependientePK.setNsse(Long.parseLong(this.txtNSSE.getValue().toString())); 
+            objDependientePK.setNombreDependiente(this.txtNombre.getValue().toString());
+            
+            objDependiente.setDependientePK(objDependientePK);
             objDependiente.setSexo(this.cmbSexos.getValue().toString());
             objDependiente.setFechan(fechaCadena.parse(this.txtFechan.getValue().toString()));
             objDependiente.setParentesco(this.txtParentesco.getValue().toString());
@@ -216,10 +225,14 @@ public class DependienteVista {
     // Método eliminar
     public void action_eliminar(){
         try{
-            SimpleDateFormat fechaCadena = new SimpleDateFormat();
+            SimpleDateFormat fechaCadena = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZ yyyy");
             Dependiente objDependiente = new Dependiente();
-            try { objDependiente.getDependientePK().setNsse(Long.parseLong(this.txtNSSE.getValue().toString())); } catch(Exception ex) {}
-            objDependiente.getDependientePK().setNombreDependiente(this.txtNombre.getValue().toString());
+            DependientePK objDependientePK = new DependientePK();
+            
+            objDependientePK.setNsse(Long.parseLong(this.txtNSSE.getValue().toString())); 
+            objDependientePK.setNombreDependiente(this.txtNombre.getValue().toString());
+            
+            objDependiente.setDependientePK(objDependientePK);
             objDependiente.setSexo(this.cmbSexos.getValue().toString());
             objDependiente.setFechan(fechaCadena.parse(this.txtFechan.getValue().toString()));
             objDependiente.setParentesco(this.txtParentesco.getValue().toString());
