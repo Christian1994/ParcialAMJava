@@ -225,7 +225,7 @@ public class DependienteVista {
     // Método eliminar
     public void action_eliminar(){
         try{
-            SimpleDateFormat fechaCadena = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZ yyyy");
+            SimpleDateFormat fechaCadena = new SimpleDateFormat("yyyy-MM-dd");
             Dependiente objDependiente = new Dependiente();
             DependientePK objDependientePK = new DependientePK();
             
