@@ -140,9 +140,9 @@ public class TrabajaEnVista {
             } catch(Exception ex) {}
             objTrabajaEn.setProyecto(objProyecto);
             objTrabajaEn.setEmpleado(objEmpleado);
-            objTrabajaEn.setHoras();
+            objTrabajaEn.setHoras(Integer.parseInt(this.txtHoras.getValue().toString()));
             
-            TrabajaEnLogica.registrarTrabajaEn(objTrabajaEn);
+            trabajaEnLogica.registrarTrabajaEn(objTrabajaEn);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Información de creación de matrícula", "La matrícula fue hecha con éxito."));
 
         } catch (Exception ex) {
